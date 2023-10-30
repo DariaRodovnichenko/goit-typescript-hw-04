@@ -1,5 +1,22 @@
 import React, {useReducer} from "react";
 
+// Define the RequestStep type
+type RequestStep = "start" | "pending" | "finished" | "idle";
+
+// Define the State type
+type State = {
+  isRequestInProgress: boolean;
+  requestStep: RequestStep;
+};
+
+// Define the Action type
+type Action =
+  | { type: "START_REQUEST" }
+  | { type: "PENDING_REQUEST" }
+  | { type: "FINISH_REQUEST" }
+  | { type: "RESET_REQUEST" };
+
+
 const initialState: State = {
   isRequestInProgress: false,
   requestStep: 'idle',
